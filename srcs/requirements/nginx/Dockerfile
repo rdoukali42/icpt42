@@ -1,0 +1,14 @@
+FROM debian:buster
+
+RUN apt-get update \
+    && apt-get install -y nginx openssl \
+    && apt -y install openssl
+
+EXPOSE 443
+
+COPY ./conf/default /etc/nginx/sites-available/
+COPY ./tools/script.sh /
+
+RUN chmod +x /script.sh
+
+CMD [ "/script.sh" ]
