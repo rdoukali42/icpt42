@@ -5,14 +5,14 @@ volumes:
                 name: mariadb
                 driver: local
                 driver_opts:
-                        device: /Users/rdoukali/Documents/CPP/vuejs/Inception/srcs/mariadb
+                        device: /rootInception/srcs/mariadb
                         o: bind
                         type: none
         wordpress:
                 name: wordpress
                 driver: local
                 driver_opts:
-                        device: /Users/rdoukali/Documents/CPP/vuejs/Inception/srcs/wordpress
+                        device: /root/Inception/srcs/wordpress/wp
                         o: bind
                         type: none
 
