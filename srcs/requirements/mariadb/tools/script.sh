@@ -3,15 +3,13 @@
 
 
 service mysql start 
+echo "CREATE DATABASE IF NOT EXISTS $debian_name ;" > debian.sql
+echo "CREATE USER IF NOT EXISTS '$debian_client'@'%' IDENTIFIED BY '$db1_pwd' ;" >> debian.sql
+echo "GRANT ALL PRIVILEGES ON $debian_name.* TO '$debian_client'@'%' ;" >> debian.sql
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '12345' ;" >> debian.sql
+echo "FLUSH PRIVILEGES;" >> debian.sql
 
-
-echo "CREATE DATABASE IF NOT EXISTS $db1_name ;" > db1.sql
-echo "CREATE USER IF NOT EXISTS '$db1_user'@'%' IDENTIFIED BY '$db1_pwd' ;" >> db1.sql
-echo "GRANT ALL PRIVILEGES ON $db1_name.* TO '$db1_user'@'%' ;" >> db1.sql
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '12345' ;" >> db1.sql
-echo "FLUSH PRIVILEGES;" >> db1.sql
-
-mysql < db1.sql
+mysql < debian.sql
 
 service mysql stop
 
