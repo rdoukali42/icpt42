@@ -2,7 +2,7 @@ DOCKER_COMPOSE = docker-compose -f ./srcs/docker-compose.yml
 
 all: up
 
-up:
+up:down
 	@$ docker volume rm  mariadb || true
 	@$ docker volume rm wordpress || true
 	@$(DOCKER_COMPOSE) up -d

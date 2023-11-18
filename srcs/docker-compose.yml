@@ -5,14 +5,14 @@ volumes:
                 name: mariadb
                 driver: local
                 driver_opts:
-                        device: /rootInception/srcs/mariadb
+                        device: /root/Inception/srcs/mondatory/mariadb
                         o: bind
                         type: none
         wordpress:
                 name: wordpress
                 driver: local
                 driver_opts:
-                        device: /root/Inception/srcs/wordpress/wp
+                        device: /root/Inception/srcs/mondatory/wordpress/wp
                         o: bind
                         type: none
 
@@ -23,7 +23,7 @@ networks:
 services:
   mariadb:
     container_name: mariadb
-    build: ./requirements/mariadb/.
+    build: ./mondatory/mariadb/.
     image: mariadb:42
     volumes:
       - mariadb:/var/lib/mysql
@@ -34,7 +34,7 @@ services:
     restart: always
   nginx:
     container_name: nginx
-    build: ./requirements/nginx/.
+    build: ./mondatory/nginx/.
     image: nginx:42
     ports:
      - "443:443"
@@ -49,7 +49,7 @@ services:
     restart: always
   wordpress:
     container_name: wordpress
-    build: ./requirements/wordpress/.
+    build: ./mondatory/wordpress/.
     image: wordpress:42
     depends_on:
       - mariadb

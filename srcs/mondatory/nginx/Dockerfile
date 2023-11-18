@@ -2,7 +2,8 @@ FROM debian:buster
 
 RUN apt-get update \
     && apt-get install -y nginx openssl \
-    && apt -y install openssl
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 443
 
@@ -11,4 +12,5 @@ COPY ./tools/script.sh /
 
 RUN chmod +x /script.sh
 
-CMD [ "/script.sh" ]
+CMD ["/script.sh"]
+
