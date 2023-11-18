@@ -19,4 +19,7 @@ start:
 ps:
 	@docker ps
 
+re:
+	@ stop && start
+
 .PHONY: all up down stop start ps
