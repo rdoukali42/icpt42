@@ -2,7 +2,7 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
 
-    server_name rdoukali@student.42heilbronn.de rdoukali.42.de;
+    server_name rdoukali@student.42heilbronn.de rdoukali.42heilbronn.de;
 
     ssl_certificate here_certs;
     ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
